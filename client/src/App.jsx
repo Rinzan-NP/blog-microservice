@@ -1,16 +1,14 @@
-import { useState } from 'react'
+import React from "react";
+import  PostCreate from "./components/PostCreate";
+import PostList from "./components/PostList";
 
-import './App.css'
-import PostCreate from './components/PostCreate'
+const App = () => {
+    return (
+        <div className="flex flex-col w-full h-screen items-center py-20">
+            <PostCreate />
+            <PostList />
+        </div>
+    );
+};
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-        <PostCreate/>
-    </>
-  )
-}
-
-export default App
+export default App;

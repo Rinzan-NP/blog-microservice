@@ -1,14 +1,16 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-const CommentCreate = ({ postId }) => {
+const CommentCreate = (props) => {
+  const { postId } = props;
   const [content, setContent] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    axios.post(`http://posts.com/post/${postId}/comments`, {
-      content,
+    console.log(content);
+    axios.post(`http://127.0.0.1:8000/api/comments/${postId}`, {
+      post_id: postId,
+      comment: content,
     });
 
     setContent("");

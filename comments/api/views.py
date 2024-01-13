@@ -6,13 +6,13 @@ from rest_framework.views import APIView
 
 
 class CommentView(APIView):
-    def get(self, request):
-        comments = Comments.objects.all()
+    def get(self, request,id):
+        comments = Comments.objects.filter(post_id=id)
         serializer = CommentSerializer(comments, many=True)
         serialized_data = serializer.data
         return Response(serialized_data, status=status.HTTP_200_OK)
 
-    def post(self, request):
+    def post(self, request,id):
         data = request.data
         serializer = CommentSerializer(data=data)
 

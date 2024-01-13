@@ -4,7 +4,6 @@ from .models import Post
 from .serializer import PostSerializer
 from rest_framework import status
 import requests
-import json
 
 class PostView(APIView):
     def get(self, request):
@@ -20,18 +19,12 @@ class PostView(APIView):
         if serializer.is_valid():
             serializer.save()
             url = "http://127.0.0.1:8005/events/"
-            params = {
+            parames = {
                 "type": "post_created",
                 "data": serializer.data
             }
-            headers = {'Content-Type': 'application/json'}
-            requests.post(url=url, data=json.dumps(params), headers=headers)  # Serialize to JSON
-            
-            
+            r = requests.post(url=url, data = parames)
             return Response(serializer.data,status=status.HTTP_201_CREATED)
         return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST)
 
-class EventView(APIView):
-    def post(self, request):
-        message = "Event received"
-        return Response(message)
+        

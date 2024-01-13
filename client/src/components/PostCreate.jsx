@@ -7,7 +7,7 @@ const PostCreate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.post("http://posts.com/posts/create", {
+    await axios.post("http://127.0.0.1:8001/api/posts/", {
       title,
     });
 
