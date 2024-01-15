@@ -12,3 +12,10 @@ class PostWithCommentsSerializer(ModelSerializer):
     class Meta:
         model = QueryPost
         fields = ['id', 'title', 'comments']
+
+
+class PostSerializer(ModelSerializer):
+    class Meta:
+        model = QueryPost
+        fields = '__all__'
+

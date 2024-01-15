@@ -28,6 +28,6 @@ class EventView(APIView):
         headers = {'Content-Type': 'application/json'}
         requests.post(url=post_url, data=json.dumps(data),headers = headers)
         requests.post(url=comment_url, data=json.dumps(data),headers = headers)
-        # requests.post(url=query_url, data=json.dumps(data),headers = headers)
+        requests.post(url=query_url, data=json.dumps(data),headers = headers)
 
         return Response(data)

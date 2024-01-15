@@ -23,7 +23,7 @@ class CommentView(APIView):
         if serializer.is_valid():
             serializer.save()
             url = "http://127.0.0.1:8005/events/"
-            params = {"type": "post_created", "data": serializer.data}
+            params = {"type": "comment_created", "data": serializer.data}
             headers = {"Content-Type": "application/json"}
             requests.post(url=url, data=json.dumps(params), headers=headers)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -33,6 +33,4 @@ class CommentView(APIView):
 class EventView(APIView):
     def post(self, request):
         message = "Event received"
-        if request.data['type'] == "post_created":
-            print("post created event triggered")
         return Response(message)
