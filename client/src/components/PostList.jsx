@@ -8,7 +8,7 @@ const PostList = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8001/api/posts/");
+      const response = await axios.get("http://127.0.0.1:8003/api/posts/");
       setPosts(response.data);
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -31,7 +31,7 @@ const PostList = () => {
               className="flex flex-col items-start border border-black w-1/3 mx-2 p-4 space-y-2"
             >
               <h2 className="text-3xl font-semibold">{post.title}</h2>
-              <CommentList postId={post.id} />
+              <CommentList comments={post.comments} />
               <CommentCreate postId={post.id} />
             </div>
           ))}
