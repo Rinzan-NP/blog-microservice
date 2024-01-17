@@ -1,0 +1,11 @@
+//not used:
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: post
+spec:
+  containers:
+  - name: post
+    image: rinzan/post:0.0.1
+

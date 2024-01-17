@@ -19,7 +19,7 @@ class PostView(APIView):
 
         if serializer.is_valid():
             serializer.save()
-            url = "http://127.0.0.1:8005/events/"
+            url = "http://event-bus-srv:8005/events/"
             params = {
                 "type": "post_created",
                 "data": serializer.data

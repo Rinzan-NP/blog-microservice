@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: posts-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: posts
+  template:
+    metadata:
+      labels:
+        app: posts
+    spec:
+      containers:
+        - name: posts
+          image: rinzan/posts
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: posts-cluster-srv
+spec:
+  type: NodePort
+  selector:
+    app: posts
+  ports:
+    - name: posts
+      protocol: TCP
+      port: 8001
+      targetPort: 8001
