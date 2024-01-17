@@ -22,7 +22,7 @@ class CommentView(APIView):
 
         if serializer.is_valid():
             serializer.save()
-            url = "http://127.0.0.1:8005/events/"
+            url = "http://event-bus-srv:8005/events/"
             params = {"type": "comment_created", "data": serializer.data}
             headers = {"Content-Type": "application/json"}
             requests.post(url=url, data=json.dumps(params), headers=headers)

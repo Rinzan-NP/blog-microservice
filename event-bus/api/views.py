@@ -17,8 +17,8 @@ class EventView(APIView):
             return JsonResponse({'error': 'Invalid JSON data'}, status=400)
 
         post_url = "http://posts-cluster-srv:8001/api/events/"
-        # comment_url = "http://127.0.0.1:8000/api/events/"
-        # query_url = "http://127.0.0.1:8003/api/events/"
+        comment_url = "http://comments-srv:8000/api/events/"
+        query_url = "http://query-srv:8003/api/events/"
 
         data = {
             "type": event_type,
@@ -27,7 +27,7 @@ class EventView(APIView):
         
         headers = {'Content-Type': 'application/json'}
         requests.post(url=post_url, data=json.dumps(data),headers = headers)
-        # requests.post(url=comment_url, data=json.dumps(data),headers = headers)
-        # requests.post(url=query_url, data=json.dumps(data),headers = headers)
+        requests.post(url=comment_url, data=json.dumps(data),headers = headers)
+        requests.post(url=query_url, data=json.dumps(data),headers = headers)
 
         return Response(data)
