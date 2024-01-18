@@ -8,7 +8,7 @@ const CommentCreate = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    axios.post(`http://127.0.0.1:8000/api/comments/${postId}`, {
+    axios.post(`http://posts.com/api/comments/${postId}`, {
       post_id: postId,
       comment: content,
     });
