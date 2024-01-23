@@ -79,14 +79,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'blog_post',
-       'USER': 'postgres',
-       'PASSWORD': 'root',
-       'HOST': 'host.docker.internal',
-       'PORT': '5432',
-   }
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'blog_post',
+    'USER': 'Rinzan-NP',
+    'PASSWORD': 'YTjfZ29SorCi',
+    'HOST': 'ep-dark-mode-a5rdm5u7.us-east-2.aws.neon.tech',
+    'PORT': '5432',
+    'OPTIONS': {'sslmode': 'require'},
+  }
 }
 
 # Password validation
